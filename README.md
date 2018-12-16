@@ -25,3 +25,9 @@ $ docker run -p 8085:8085 dockerspringbootapp
 ```sh
 $ docker inspect <nombre-container>
 ```
+
+### CMD Command
+Default Startup Command, that is run when the container is created, you can override it giving a list of params with the docker run command.
+
+### ENTRYPOINT Command
+Any command line arguments passed to docker run <image> will be appended to the entrypoint command, and will override all elements specified using CMD. For example, docker run <image> bash will add the command argument bash to the end of the entrypoint.
