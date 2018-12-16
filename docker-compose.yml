@@ -2,6 +2,8 @@ version: '3'
 services:
   mi_db:
     image: mysql:latest
+    volumes:
+      - db-data:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=test
       - MYSQL_DATABASE=mibasededatos
