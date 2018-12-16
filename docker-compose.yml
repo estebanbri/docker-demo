@@ -1,0 +1,29 @@
+version: '3'
+services:
+  mi_db:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=test
+      - MYSQL_DATABASE=mibasededatos
+      - MYSQL_USER=esteban
+      - MYSQL_PASSWORD=test
+    ports:
+      - 3306:3306
+  web:
+    build: .    #Uses an image that’s built from the Dockerfile in the current directory.
+    image: mi_imagen_web
+    depends_on:
+      - mi_db
+    ports:
+      - "8085:8085"
+    environment:
+      - DATABASE_HOST=mi_db
+      - DATABASE_NAME=mibasededatos
+      - DATABASE_USER=esteban
+      - DATABASE_PASSWORD=test
+      - DATABASE_PORT=3306
+
+
+
+
+
